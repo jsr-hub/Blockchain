@@ -3,11 +3,13 @@ pragma solidity ^0.4.2;
 contract Deliver {
 
     struct Product{
-        uint sid;
-        uint rid;
+
+        uint pid;
         string name;
         uint quantity;
     }
+    
+    mapping(address => bool) public senders;
 
     mapping(uint => Product) public products;
 
@@ -20,6 +22,12 @@ contract Deliver {
 
     function addProduct (string _name) private {
         productsCount ++;
-        products[productsCount] = Product(1,2, _name, 5);
+        products[productsCount] = Product(productsCount, _name, 5);
+    }
+
+    function send (uint _productId) public {
+ 
+       senders[msg.sender] = true;
+       products[_productId].quantity ++;
     }
 }

@@ -58,13 +58,12 @@ App = {
 
       for (var i = 1; i <= productsCount; i++) {
         DeliveryInstance.products(i).then(function(product) {
-          var sid = product[0];
-          var rid = product[1];
-          var name = product[2];
-          var quantity = product[3];
+          var pid = product[0];
+          var name = product[1];
+          var quantity = product[2];
 
           // Render candidate Result
-          var productTemplate = "<tr><th>" + sid + "</th><td>" + rid + "</th><td>" + name + "</td><td>" + quantity + "</td></tr>"
+          var productTemplate = "<tr><th>" + pid + "</th><td>" + name + "</td><td>" + quantity + "</td></tr>"
           productsResults.append(productTemplate);
         });
       }
