@@ -15,12 +15,11 @@ contract Deliver {
 
     function Deliver () public {
         addProduct("Product 1");
-        //addProduct("Product 2");
     }
 
 
     function addProduct (string _name) private {
         productsCount ++;
-        products[productsCount] = Product(productsCount,productsCount+1, _name, 5);
+        products[productsCount] = Product(1,2, _name, 5);
     }
 }
